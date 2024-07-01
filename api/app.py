@@ -26,7 +26,9 @@ def predict():
     image = cv2.imdecode(np.frombuffer(file.read(), np.uint8), cv2.IMREAD_COLOR)
     preprocessed_image = preprocess_image(image)
     prediction = model.predict(preprocessed_image)
+    print(f'Raw prediction: {prediction}')
     predicted_text = decode_prediction(prediction)
+    print(f'Decoded text: {predicted_text}')
     return jsonify({'text': predicted_text})
 
 if __name__ == '__main__':
