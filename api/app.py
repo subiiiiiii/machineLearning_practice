@@ -1,13 +1,13 @@
-import sys
 import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
 
-# Add the utils directory to the Python path
-sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'utils'))
-
+import sys
 from flask import Flask, request, jsonify, render_template
 import tensorflow as tf
 import numpy as np
 import cv2
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'utils'))
 from preprocessing import preprocess_image
 from postprocessing import decode_prediction
 
